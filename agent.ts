@@ -57,6 +57,12 @@ const getWeather = new FunctionTool({
       );
       
       if (!response.ok) {
+        if (response.status === 401) {
+          return {
+            status: "error",
+            report: `Weather API key is invalid or unauthorized. Please check:\n1. Your API key is correctly set in OPENWEATHER_API_KEY environment variable\n2. New API keys take 2-3 hours to activate after creation\n3. Get a valid API key at: https://openweathermap.org/api`,
+          };
+        }
         if (response.status === 404) {
           return {
             status: "error",
@@ -65,7 +71,7 @@ const getWeather = new FunctionTool({
         }
         return {
           status: "error",
-          report: `Failed to fetch weather data: ${response.statusText}`,
+          report: `Failed to fetch weather data: ${response.statusText} (Status: ${response.status})`,
         };
       }
 
