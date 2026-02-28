@@ -1,0 +1,22 @@
+{
+  "name": "ai_agen_workshop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "run": "npx @google/adk-devtools run agent.ts",
+    "web": "npx @google/adk-devtools web"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@google/adk": "^0.4.0",
+    "@google/adk-devtools": "^0.4.0"
+  }
+}
